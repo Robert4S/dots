@@ -1,0 +1,18 @@
+#!/bin/sh
+
+down() {
+sudo brightnessctl s 30-
+brightness=$(light -g)
+dunstify -a "BRIGHTNESS" "Decreasing to $brightness%" -h int:value:"$brightness" -i ~/.config/dunst/assets/ui/brightness-low.svg -r 2593 -u normal
+}
+
+up() {
+sudo brightnessctl s 30+
+brightness=$(light -g)
+dunstify -a "BRIGHTNESS" "Increasing to $brightness%" -h int:value:"$brightness" -i ~/.config/dunst/assets/ui/brightness-high.svg -r 2593 -u normal
+}
+
+case "$1" in
+  up) up;;
+  down) down;;
+esac

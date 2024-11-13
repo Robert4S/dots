@@ -1,0 +1,19 @@
+#!/bin/sh
+
+down() {
+  pactl set-sink-volume @DEFAULT_SINK@ -7%
+}
+
+up() {
+  pactl set-sink-volume @DEFAULT_SINK@ +7%
+}
+
+mute() {
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+}
+
+case "$1" in
+  up) up;;
+  down) down;;
+  mute) mute;;
+esac
