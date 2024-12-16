@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Path to the brightness file
+BACKLIGHT_PATH="/sys/class/leds/tpacpi::kbd_backlight/brightness"
+
+case $1 in
+    "high")
+        echo 2 | sudo tee $BACKLIGHT_PATH
+        notify-send "Keyboard Backlight" "Backlight set to high"
+        ;;
+    "low")
+        echo 1 | sudo tee $BACKLIGHT_PATH
+        notify-send "Keyboard Backlight" "Backlight set to low"
+        ;;
+    "off")
+        echo 0 | sudo tee $BACKLIGHT_PATH
+        notify-send "Keyboard Backlight" "Backlight set to off"
+        ;;
+    *)
+        echo "Usage: $0 {high|low|off}"
+        ;;
+esac
+
