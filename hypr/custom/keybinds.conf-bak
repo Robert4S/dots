@@ -1,0 +1,26 @@
+# You can put your preferred keybinds here
+# https://wiki.hyprland.org/Configuring/Binds/
+bind = Super, return, exec, kitty
+bind = Super+Shift, 1, movetoworkspacesilent, 1
+bind = Super+Shift, 2, movetoworkspacesilent, 2
+bind = Super+Shift, 3, movetoworkspacesilent, 3
+bind = Super+Shift, 4, movetoworkspacesilent, 4
+bind = Super+Shift, 5, movetoworkspacesilent, 5
+bind = Super+Shift, 6, movetoworkspacesilent, 6
+bind = Super+Shift, 7, movetoworkspacesilent, 7
+bind = Super+Shift, 8, movetoworkspacesilent, 8
+bind = Super+Shift, 9, movetoworkspacesilent, 9
+bind = Super+Shift, 0, movetoworkspacesilent, 10
+bind = Super+Shift, S, movetoworkspacesilent, special
+bind = Super, D, exec, ags request "toggle app-launcher" # Toggle overview/launcher
+bind = Super, T, togglefloating
+bind = Super+Shift, Q, killactive
+bind = Super, B, exec, zen-browser
+bind = Super, left, resizeactive, -40 0
+bind = Super, right, resizeactive, 40 0
+bind = Super, up, resizeactive, 0 -40
+bind = Super, down, resizeactive, 0 40
+bind = Super, J, movefocus, d
+bind = Super, K, movefocus, u
+bind = Super, H, movefocus, l
+bind = Super, L, movefocus, r

@@ -11,7 +11,6 @@ return {
       credo = {},
       elixirls = {
         enable = true,
-        cmd = '/home/robert/.elixirls/release/launch.sh',
         settings = elixirls.settings {
           dialyzerEnabled = true,
           enableTestLenses = true,

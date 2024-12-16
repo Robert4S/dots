@@ -102,7 +102,7 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -894,7 +894,23 @@ local cpchatbuf = function()
   end
 end
 vim.keymap.set('n', '<leader>ccb', cpchatbuf, { desc = '[C]opilot[Chat] [Buffer]' })
-vim.cmd.colorscheme 'gruvbox'
+vim.cmd.colorscheme 'kanagawa-paper'
 vim.opt.laststatus = 2
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+-- Hyprlang LSP
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+  pattern = { '*.hl', 'hypr*.conf' },
+  callback = function(event)
+    vim.lsp.start {
+      name = 'hyprlang',
+      cmd = { 'hyprls' },
+      root_dir = vim.fn.getcwd(),
+    }
+  end,
+})
+
+vim.filetype.add {
+  pattern = { ['.*/hypr/.*%.conf'] = 'hyprlang' },
+}

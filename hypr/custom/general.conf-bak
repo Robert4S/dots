@@ -1,0 +1,5 @@
+# Put general config stuff here
+# Here's a list of every variable: https://wiki.hyprland.org/Configuring/Variables/
+exec-once = [workspace 1 silent] kitty
+exec-once = [workspace 2 silent] zen-browser
+exec-once = [workspace 3 silent] zen-browser -P School
