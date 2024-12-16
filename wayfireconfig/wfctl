@@ -1,0 +1,33 @@
+#!/usr/bin/python3
+import json
+import sys
+from wayfire import WayfireSocket
+
+def main():
+    args = sys.argv
+    socket = WayfireSocket()
+    if args[1] == "active-workspace":
+        o = socket.get_focused_output()
+        x = o["workspace"]["x"]
+        y = o["workspace"]["y"]
+        if len(args) > 2 and args[2] == "digit":
+            print(int(x) + (3 * int(y)))
+        else:
+            print(f"{{'x': {x}, 'y': {y}}}")
+    elif args[1] == "active-view":
+        x = socket.get_focused_view()
+        res = {"title": x["title"], "app": x["app-id"]}
+        l = json.dumps(res)
+        print(l)
+    elif args[1] == "set-focus":
+        num = int(args[2])
+        y = 0
+        while num > 2:
+            num -= 3
+            y += 1
+        socket.set_workspace(workspace_x=num, workspace_y=y)
+
+
+if __name__ == "__main__":
+    main()
+
