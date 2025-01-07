@@ -1,4 +1,4 @@
-return {
+local r = {
   'nvim-tree/nvim-tree.lua',
   version = '*',
   lazy = false,
@@ -10,3 +10,5 @@ return {
     vim.keymap.set({ 'n', 'v' }, '<leader>e', ':NvimTreeToggle<CR>', { silent = true, noremap = true })
   end,
 }
+
+return {}

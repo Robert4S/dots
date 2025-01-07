@@ -1,4 +1,4 @@
-return {
+local x = {
   'goolord/alpha-nvim',
   event = 'VimEnter', -- load plugin after all configuration is set
   dependencies = {
@@ -63,3 +63,4 @@ return {
     })
   end,
 }
+return {}
