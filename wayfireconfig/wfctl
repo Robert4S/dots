@@ -27,6 +27,17 @@ def main():
             y += 1
         socket.set_workspace(workspace_x=num, workspace_y=y)
 
+    elif args[1] == "focus-window":
+        key = args[2]
+        val = args[3]
+        fs = socket.list_views()
+        #for a in fs:
+        #    for i in a.keys():
+        #        print(f"{i}: {a[i]}")
+        #    print("\n\n\n\n\n")
+        f = [f for f in fs if f[key] == val]
+        socket.set_focus(f[0]["id"])
+
 
 if __name__ == "__main__":
     main()
